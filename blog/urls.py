@@ -8,5 +8,4 @@ urlpatterns = [
     path('category/<slug:slug>/', views.category_posts, name='category_posts'),
     path('like_post/<slug:slug>/', views.like_post, name='like_post'),
     path('dislike_post/<slug:slug>/', views.dislike_post, name='dislike_post'),
-
 ]

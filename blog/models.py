@@ -50,7 +50,7 @@ class Blog(BaseModel):
     twitter = models.URLField(max_length=255, null=True, blank=True, verbose_name='Twitter URL')
     youtube = models.URLField(max_length=255, null=True, blank=True, verbose_name='YouTube URL')
     slug = models.SlugField(null=False, blank=True, unique=True, db_index=True, verbose_name="Slug:")
-    likes = models.ManyToManyField(UserModel, through=Like, related_name='liked_posts',null=True, blank=True)
+    likes = models.ManyToManyField(UserModel, through=Like, related_name='liked_posts', blank=True)
     likes_count = models.PositiveIntegerField(default=0,null=True, blank=True)
     user = models.ForeignKey(UserModel, on_delete=models.CASCADE)
 

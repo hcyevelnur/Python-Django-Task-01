@@ -10,5 +10,5 @@ class ContactForm(forms.ModelForm):
             'last_name': forms.TextInput(attrs={'placeholder': 'Soyadınız'}),
             'email_address': forms.EmailInput(attrs={'placeholder': 'E-Poçt'}),
             'phone': forms.NumberInput(attrs={'placeholder': 'məs: 0501234567'}),
-            'message': forms.Textarea(attrs={'placeholder': 'Mesajınız yoxdursa sualınızıda əlavə edə bilərsiniz', 'class': 'mavi-border'}),
+            'message': forms.Textarea(attrs={'class': 'mavi-border'}),
         }

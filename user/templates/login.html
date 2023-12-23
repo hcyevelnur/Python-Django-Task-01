@@ -28,7 +28,7 @@
                 placeholder="+994" 
                 maxlength="13" 
                 id="telefon"
-                oninput="formatTelefonNumarasi(this)"
+                oninput="formatTelefonNomresiyoxla(this)"
                 value="+994"
          >
          {% if form.errors %}
@@ -57,7 +57,7 @@
     </div>
   </div>
   <script>
-    function formatTelefonNumarasi(input) {
+    function formatTelefonNomresiyoxla(input) {
 let nomre = input.value;
 
 let sadecereqem = nomre.replace(/[^0-9+\-]/g, '');

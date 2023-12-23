@@ -1,16 +1,8 @@
-from django.shortcuts import render
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.views.generic import CreateView
-from django.contrib.sites.shortcuts import get_current_site
-from django.template.loader import render_to_string
 from django.contrib.auth.decorators import login_required
-from django.utils.http import urlsafe_base64_encode
-from django.template.loader import render_to_string
-from django.utils.encoding import force_str, force_bytes
-from django.core.mail import send_mail
-from django.utils.http import urlsafe_base64_decode
 from django.contrib.auth import login,authenticate, logout
 from django.contrib.auth import get_user_model
 from django.contrib.auth.views import (PasswordChangeView, 
@@ -41,16 +33,9 @@ class UserCreateView(CreateView):
             user.save()
 
         return redirect('login')
-
-    def dispatch(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
-            return redirect('account', request.user.pk)
-        return super().dispatch(request, *args, **kwargs)
+    
 
 def user_login(request):
-
-    if request.user.is_authenticated:
-        return redirect('account', request.user.pk)
 
     if request.method == 'POST':
         form = UserLoginForm(request.POST)

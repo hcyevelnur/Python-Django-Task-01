@@ -20,24 +20,20 @@ def index(request):
 def contact(request):
     
     meqaleelaqe = DeyisebilenContact.objects.first()
-    
-
 
     if request.method == 'POST':
-        form_2 = ContactForm(request.POST)
-        if form_2.is_valid():
-            form_2.save()
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
             return redirect('contact')
     else:
-        form_2 = ContactForm()
+        form = ContactForm()
 
     context = {
         'title':'Əlaqə',
-        'form_2':form_2,
+        'form':form,
         'meqaleelaqe':meqaleelaqe,
-        
     }
-
     return render(request, 'contact.html', context=context)
 
 def haqqimizda(request):

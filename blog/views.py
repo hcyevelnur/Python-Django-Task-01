@@ -3,7 +3,6 @@ from .models import *
 from .forms import *
 from django.http import JsonResponse
 from django.core.paginator import Paginator
-from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 
 # Create your views here.
@@ -67,7 +66,7 @@ def blog_2(request):
     blogs_1 = Blog.objects.order_by("-created").all()
     blogs = Blog.objects.order_by("-read_count").all()
 
-    paginator = Paginator(blogs_1, 3)
+    paginator = Paginator(blogs_1, 4)
     page_number = request.GET.get('page')
     sehifeler = paginator.get_page(page_number)
 
@@ -86,7 +85,7 @@ def category_posts(request, slug):
     posts = Blog.objects.filter(category=category)
     blogs = Blog.objects.all()
 
-    paginator = Paginator(posts, 3)
+    paginator = Paginator(posts, 4)
     page_number = request.GET.get('page')
     sehifeler = paginator.get_page(page_number)
 
@@ -116,6 +115,7 @@ def like_post(request, slug):
         blog.increment_likes_count()
 
     return redirect('blog-etrafli', slug=blog.slug)
+
 
 @require_POST
 def dislike_post(request, slug):

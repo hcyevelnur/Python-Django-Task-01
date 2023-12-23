@@ -3,8 +3,6 @@ from django.contrib.auth.models import AbstractBaseUser
 # from django.contrib.auth import get_user_model
 from django.contrib.auth.models import PermissionsMixin
 from django.utils import timezone
-from django.dispatch import receiver
-from django.db.models.signals import post_save
 from .managers import CustomUserManager
 
 class UserModel(AbstractBaseUser, PermissionsMixin):

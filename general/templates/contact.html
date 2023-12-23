@@ -2,10 +2,18 @@
 {% load static %}
 {% block content %}
 <style>
-
+      input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
 input[type="text"],
 input[type="email"],
-input[type="tel"],
+input[type="number"],
 textarea {
   border: none;
   border-bottom: 2px solid rgb(128, 126, 126);
@@ -66,10 +74,10 @@ ion-icon:not([name="logo-codepen"]) {
               <input required placeholder="E-mail" type="email" name="email_address" />
             </div>
             <div class="col-md-6 p-3">
-              <input required placeholder="Telefon" type="tel" name="phone" />
+              <input required placeholder="Telefon" type="number" name="phone" />
             </div>
             <div class="col-md">
-              <textarea required name="Message" placeholder="Mesajınız..." cols="30" rows="1"></textarea>
+              <textarea required name="message" placeholder="Mesajınız..." cols="30" rows="1"></textarea>
             </div>
             <div class="text-end mt-4">
               <input class="btn px-4 py-3 btn-outline-dark" type="submit" value="Göndər" />
