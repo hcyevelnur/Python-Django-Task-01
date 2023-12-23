@@ -17,6 +17,9 @@ Bu Proyekt Python Django ilə hazırlanıb.
 10. Terminalda localhost linki görünəcək ona klikləyərək (koypalayaraq) brauserdə açın.
 
 Admin panelə giriş etmək üçün (https://hcyevelnur.pythonanywhere.com/sfhagfjkhjkajskfbjafbka1407-Admin-Panel/) <- bu linkdən istifadə et.
+ Admin panel 
+    -- Nömrə : 0515400979
+    -- Şifrə : elnurr123
 
 
 -- Səhifələr Bootstrap 5 dir. Hava proqnozu APİ ilə işləyir.
