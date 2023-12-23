@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% if user.is_authenticated %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+
+<div class="container">
+    <div class="row profile">
+		<div class="col-md-12">
+            
+            <div style="justify-content: center;" class="profile-content d-flex">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3 col-md-12">
+                      <label for="basliq" class="form-label">Başlıq:</label>
+                      {{ form.title }}
+                    </div>
+                    <div class="mb-3 col-md-12">
+                        <label for="sekil" class="form-label">Şəkil:</label>
+                        <input type="file" id="sekil" name="blog_image" >
+                      </div>
+                    <div class="mb-3 col-md-12">
+                        <label for="tagadi" class="form-label">Tag seç:</label>
+                        {{ form.tags }}
+                      </div>
+                      <div class="mb-3 col-md-12">
+                        <label for="tarix" class="form-label">Tarix:</label>
+                        {{ form.post_date }}
+                      </div>
+                    <div class="mb-3 col-md-12">
+                        <label for="kategoriya">Kategoriyanı seç:</label>
+                        {{ form.category }}
+                    </div>
+                    <div class="mb-3 col-md-12">
+                        <label for="blogtesviri" class="form-label">Bloq Təsviri:</label>
+                        {{form.blog_desc}}
+                      </div>
+                    <button type="submit" class="btn btn-primary">Əlavə et</button>
+                  </form>
+            </div>
+		</div>
+	</div>
+    
+</div>
+{% else %}
+    <p style="font-size: 50px; color:red; text-align:center; font-weight: 600; padding: 60px;">Belə profil yoxdur.</p>
+{% endif %}
+{% endblock %}

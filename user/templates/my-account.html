@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% if user.is_authenticated %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+
+<div class="container">
+    <div class="row profile">
+		<div class="col-md-3">
+			<div class="profile-sidebar">
+				<div class="profile-usertitle">
+					<div class="profile-usertitle-name">
+						{{ user.first_name }}
+                        {% if user.last_name %} 
+                        {{ user.last_name }}
+                        {% endif %}
+					</div>
+					<div class="profile-usertitle-job">
+						Developer
+					</div>
+				</div>
+                <div class="profile-userbuttons">
+                    <a href="{% url 'meqale' %}">
+                        <button type="button" class="btn btn-success btn-sm">Əlavə et</button>
+                    </a>
+					<a href="{% url 'logout' %}">
+                        <button type="button" class="btn btn-danger btn-sm">Çıxış et</button>
+                    </a>
+				</div>
+
+				<div class="profile-usermenu">
+					<ul class="nav">
+						<li class="active">
+							<a>
+							<i class="glyphicon glyphicon-home"></i>
+							Haqqımda </a>
+						</li>
+					</ul>
+				</div>
+			   
+           <div class="portlet light bordered">
+                                                <div class="row list-separated profile-stat">
+                                                    <div class="col-md-4 col-sm-4 col-xs-6">
+                                                        <div class="uppercase profile-stat-title"> 37 </div>
+                                                        <div class="uppercase profile-stat-text"> Projects </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-4 col-xs-6">
+                                                        <div class="uppercase profile-stat-title"> 51 </div>
+                                                        <div class="uppercase profile-stat-text"> Tasks </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-4 col-xs-6">
+                                                        <div class="uppercase profile-stat-title"> 61 </div>
+                                                        <div class="uppercase profile-stat-text"> Uploads </div>
+                                                    </div>
+                                                </div>
+                                                 <div>
+                                                    <h4 class="profile-desc-title">						{{ user.first_name }}
+                                                        {% if user.last_name %} 
+                                                        {{ user.last_name }}
+                                                        {% endif %}</h4>
+                                                    <span class="profile-desc-text"> Lorem ipsum dolor sit amet diam nonummy nibh dolore. </span>
+                                                    <div class="margin-top-20 profile-desc-link">
+                                                        <i class="fa fa-globe"></i>
+                                                        <a href="https://www.apollowebstudio.com">{{ user.phone }}</a>
+                                                    </div>
+                                                </div>
+                                            </div>                   
+                                           
+        
+        
+			</div>
+		</div>
+		<div class="col-md-9">
+            <div class="profile-content">
+                {% if blogpostlari %}
+                {% for blogpost in blogpostlari %}
+			   <a href="{% url 'blog-etrafli' slug=blogpost.slug %}"><p>{{blogpost.title}}: {{blogpost.created}}</p></a>
+               {% endfor %}
+               {% else %}
+               <p style="text-align: center;">Əlavə edilən məqalələriniz burada görsənəcək.</p>
+               {% endif %}
+            </div>
+		</div>
+	</div>
+</div>
+{% else %}
+    <p style="font-size: 50px; color:red; text-align:center; font-weight: 600; padding: 60px;">Belə profil yoxdur.</p>
+{% endif %}
+{% endblock %}

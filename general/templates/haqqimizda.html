@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="about-section">
+    <div class="container">
+        <div class="row">                
+            <div class="content-column col-lg-6 col-md-12 col-sm-12 order-2">
+                <div class="inner-column">
+                    <div class="sec-title">
+                        <span class="title">{{meqalehaqqimizda.title}}</span>
+                        <h2>{{meqalehaqqimizda.title_2}}</h2>
+                    </div>
+                    <div class="text">{{meqalehaqqimizda.desc}}</div>
+                    <div class="btn-box">
+                        <a href="{% url 'contact' %}" class="theme-btn btn-style-one">Bizə salam de</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="image-column col-lg-6 col-md-12 col-sm-12">
+                <div class="inner-column wow fadeInLeft">
+                  <div class="author-desc">
+                    <h2>Haciyev Elnur</h2>
+                    <span>Python Web Developer</span>
+                  </div>
+                    <figure class="image-1">
+                        <a href="#" class="lightbox-image" data-fancybox="images">
+                            <img title="Rahul Kumar Yadav" src="{{meqalehaqqimizda.image.url}}" alt="">
+                        </a>
+                    </figure>
+                 
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

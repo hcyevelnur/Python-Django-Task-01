@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <div class="container pb-5">
+    <div class="row justify-content-center mt-5">
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="card shadow">
+          <div class="card-title text-center border-bottom">
+            <h2 class="p-3">Daxil ol</h2>
+          </div>
+          {% if form.errors %}
+          <div style="background-color: transparent !important; color: #515cec; border: 0px;" class="alert alert-dismissible" role="alert">
+              <div id="form_errors">
+                  {% for key, value in form.errors.items %}
+                      <strong>{{ value }}</strong>
+                  {% endfor %}
+              </div>
+          </div>
+          {% endif %}
+          <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+              <div class="mb-4">
+                <label for="phone" class="form-label">Telefon nömrəsi</label>
+                <input type="tel" 
+                name="{{form.phone.name}}" 
+                class="form-control" 
+                placeholder="+994" 
+                maxlength="13" 
+                id="telefon"
+                oninput="formatTelefonNumarasi(this)"
+                value="+994"
+         >
+         {% if form.errors %}
+         {% for error in form.phone.errors %}
+         <p style="color:red">
+           {{ error }}
+         </p>
+         {% endfor %}
+         {% endif %}
+         <span id="nomreduzgunolmasi" style="color: red;"></span>
+              </div>
+              <div class="mb-4">
+                <label for="password" class="form-label">Şifrə</label>
+                {{ form.password }}
+              </div>
+              <div class="mb-4">
+                <label for="remember" class="form-label">Hesabın yoxdur? <a href="{% url 'register' %}"><span>Qeydiyyatdan keç</span></a></label>
+              </div>
+              <div class="d-grid">
+                <button type="submit" class="btn btn-primary">Daxil ol</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function formatTelefonNumarasi(input) {
+let nomre = input.value;
+
+let sadecereqem = nomre.replace(/[^0-9+\-]/g, '');
+
+if (!sadecereqem.startsWith('+994')) {
+    sadecereqem = '+994' + sadecereqem;
+}
+
+input.value = sadecereqem;
+
+var nomreduzgunolmasi = document.getElementById('nomreduzgunolmasi');
+if (sadecereqem.length < 13) {
+    nomreduzgunolmasi.textContent = 'Düzgün nömrə daxil edin!';
+} else {
+    nomreduzgunolmasi.textContent = '';
+}
+}
+</script>
+{% endblock %}
