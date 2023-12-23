@@ -16,4 +16,7 @@ Bu Proyekt Python Django ilə hazırlanıb.
 9. python manage.py runserver kamandası ilə proyekti başladın.
 10. Terminalda localhost linki görünəcək ona klikləyərək (koypalayaraq) brauserdə açın.
 
+Admin panelə giriş etmək üçün (https://hcyevelnur.pythonanywhere.com/sfhagfjkhjkajskfbjafbka1407-Admin-Panel/) <- bu linkdən istifadə et.
+
+
 -- Səhifələr Bootstrap 5 dir. Hava proqnozu APİ ilə işləyir.
