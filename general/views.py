@@ -11,7 +11,7 @@ def index(request):
 
 
     context = {
-        'title':'Xoş gəldin!',
+        'title':'Xoş gəldiniz!',
         'blogs_1':blogs_1
     }
 
